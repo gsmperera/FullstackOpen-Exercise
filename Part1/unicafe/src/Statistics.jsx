@@ -12,15 +12,22 @@ const Statistics = ({ count }) => {
     return (
       <div>
         <h2>statistics</h2>
-        <StatisticLine text="good" value={count.good} />
-        <StatisticLine text="neutral" value={count.neutral} />
-        <StatisticLine text="bad" value={count.bad} />
-        <StatisticLine text="all" value={total} />
-        <StatisticLine text="average" value={averageIsNum ? average : "-"} />
-        <StatisticLine
-          text="positive"
-          value={positiveIsNum ? positive + "%" : "-"}
-        />
+        <table>
+          <tbody>
+            <StatisticLine text="good" value={count.good} />
+            <StatisticLine text="neutral" value={count.neutral} />
+            <StatisticLine text="bad" value={count.bad} />
+            <StatisticLine text="all" value={total} />
+            <StatisticLine
+              text="average"
+              value={averageIsNum ? average : "-"}
+            />
+            <StatisticLine
+              text="positive"
+              value={positiveIsNum ? positive + "%" : "-"}
+            />
+          </tbody>
+        </table>
       </div>
     );
   } else {
