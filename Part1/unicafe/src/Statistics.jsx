@@ -7,17 +7,26 @@ const Statistics = ({ count }) => {
   const averageIsNum = !Number.isNaN(average);
   const positiveIsNum = !Number.isNaN(positive);
 
-  return (
-    <div>
-      <h2>statistics</h2>
-      <p>good {count.good}</p>
-      <p>neutral {count.neutral}</p>
-      <p>bad {count.bad}</p>
-      <p>all {total}</p>
-      <p>average {averageIsNum ? average : "-"}</p>
-      <p>positive {positiveIsNum ? positive + "%" : "-"}</p>
-    </div>
-  );
+  if (total > 0) {
+    return (
+      <div>
+        <h2>statistics</h2>
+        <p>good {count.good}</p>
+        <p>neutral {count.neutral}</p>
+        <p>bad {count.bad}</p>
+        <p>all {total}</p>
+        <p>average {averageIsNum ? average : "-"}</p>
+        <p>positive {positiveIsNum ? positive + "%" : "-"}</p>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h2>statistics</h2>
+        <p>No feedback given</p>
+      </div>
+    );
+  }
 };
 
 export default Statistics;
