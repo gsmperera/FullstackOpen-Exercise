@@ -1,4 +1,5 @@
 import React from "react";
+import StatisticLine from "./StatisticLine.jsx";
 
 const Statistics = ({ count }) => {
   const total = count.good + count.neutral + count.bad;
@@ -11,12 +12,15 @@ const Statistics = ({ count }) => {
     return (
       <div>
         <h2>statistics</h2>
-        <p>good {count.good}</p>
-        <p>neutral {count.neutral}</p>
-        <p>bad {count.bad}</p>
-        <p>all {total}</p>
-        <p>average {averageIsNum ? average : "-"}</p>
-        <p>positive {positiveIsNum ? positive + "%" : "-"}</p>
+        <StatisticLine text="good" value={count.good} />
+        <StatisticLine text="neutral" value={count.neutral} />
+        <StatisticLine text="bad" value={count.bad} />
+        <StatisticLine text="all" value={total} />
+        <StatisticLine text="average" value={averageIsNum ? average : "-"} />
+        <StatisticLine
+          text="positive"
+          value={positiveIsNum ? positive + "%" : "-"}
+        />
       </div>
     );
   } else {
