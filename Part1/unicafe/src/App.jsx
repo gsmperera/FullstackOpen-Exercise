@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Feedback from "./Feedback.jsx";
-import Stat from "./Stat.jsx";
+import Statistics from "./Statistics.jsx";
 
 const App = () => {
   // save clicks of each button to its own state
@@ -17,12 +17,13 @@ const App = () => {
         <Feedback rate="neutral" onClick={() => setNeutral(neutral + 1)} />
         <Feedback rate="bad" onClick={() => setBad(bad + 1)} />
       </div>
-      <h2>statistics</h2>
-      <div>
-        <Stat rate="good" count={good} />
-        <Stat rate="neutral" count={neutral} />
-        <Stat rate="bad" count={bad} />
-      </div>
+      <Statistics
+        count={{
+          good: good,
+          neutral: neutral,
+          bad: bad,
+        }}
+      />
     </div>
   );
 };
